@@ -1,0 +1,11 @@
+[Unit]
+Description=Kea Prometheus Exporter - shailamartinez
+After=network.target kea-dhcp4-server.service
+
+[Service]
+ExecStart=/home/smartinez6/.local/bin/kea-exporter http://172.24.63.10:8000
+Restart=always
+User=smartinez6
+
+[Install]
+WantedBy=multi-user.target

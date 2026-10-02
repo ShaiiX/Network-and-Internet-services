@@ -1,0 +1,79 @@
+{
+  "title": "DHCP shailamartinez",
+  "uid": "dhcp-shailamartinez",
+  "schemaVersion": 39,
+  "refresh": "15s",
+  "time": { "from": "now-1h", "to": "now" },
+  "panels": [
+    {
+      "id": 1, "type": "gauge", "title": "Ocupació del pool (%)",
+      "gridPos": { "x": 0, "y": 0, "w": 6, "h": 7 },
+      "datasource": { "type": "prometheus", "uid": "prometheus-dhcp" },
+      "targets": [{ "refId": "A", "expr": "kea_dhcp4_addresses_assigned_total{pool=\"\"} / kea_dhcp4_addresses_total{pool=\"\"} * 100" }],
+      "fieldConfig": { "defaults": {
+        "unit": "percent", "min": 0, "max": 100,
+        "thresholds": { "mode": "absolute", "steps": [
+          { "color": "green", "value": null },
+          { "color": "orange", "value": 70 },
+          { "color": "red", "value": 90 } ] } } },
+      "options": { "showThresholdMarkers": true, "reduceOptions": { "calcs": ["lastNotNull"] } }
+    },
+    {
+      "id": 2, "type": "stat", "title": "Concessions actives",
+      "gridPos": { "x": 6, "y": 0, "w": 4, "h": 7 },
+      "datasource": { "type": "prometheus", "uid": "prometheus-dhcp" },
+      "targets": [{ "refId": "A", "expr": "kea_dhcp4_addresses_assigned_total{pool=\"\"}" }],
+      "fieldConfig": { "defaults": { "unit": "short", "color": { "mode": "fixed", "fixedColor": "blue" } } },
+      "options": { "graphMode": "area", "colorMode": "value", "reduceOptions": { "calcs": ["lastNotNull"] } }
+    },
+    {
+      "id": 3, "type": "stat", "title": "Adreces totals del pool",
+      "gridPos": { "x": 10, "y": 0, "w": 4, "h": 7 },
+      "datasource": { "type": "prometheus", "uid": "prometheus-dhcp" },
+      "targets": [{ "refId": "A", "expr": "kea_dhcp4_addresses_total{pool=\"\"}" }],
+      "fieldConfig": { "defaults": { "unit": "short", "color": { "mode": "fixed", "fixedColor": "purple" } } },
+      "options": { "graphMode": "none", "colorMode": "value", "reduceOptions": { "calcs": ["lastNotNull"] } }
+    },
+    {
+      "id": 4, "type": "stat", "title": "Servidor DHCP no autoritzat",
+      "gridPos": { "x": 14, "y": 0, "w": 10, "h": 7 },
+      "datasource": { "type": "prometheus", "uid": "prometheus-dhcp" },
+      "targets": [{ "refId": "A", "expr": "dhcp_rogue_server_detected" }],
+      "fieldConfig": { "defaults": {
+        "mappings": [{ "type": "value", "options": {
+          "0": { "text": "TOT OK", "color": "green" },
+          "1": { "text": "ROGUE DETECTAT", "color": "red" } } }],
+        "thresholds": { "mode": "absolute", "steps": [ { "color": "green", "value": null }, { "color": "red", "value": 1 } ] } } },
+      "options": { "colorMode": "background", "graphMode": "none", "textMode": "value", "reduceOptions": { "calcs": ["lastNotNull"] } }
+    },
+    {
+      "id": 5, "type": "timeseries", "title": "Ocupació del pool en temps real",
+      "gridPos": { "x": 0, "y": 7, "w": 14, "h": 9 },
+      "datasource": { "type": "prometheus", "uid": "prometheus-dhcp" },
+      "targets": [{ "refId": "A", "legendFormat": "Ocupació %", "expr": "kea_dhcp4_addresses_assigned_total{pool=\"\"} / kea_dhcp4_addresses_total{pool=\"\"} * 100" }],
+      "fieldConfig": { "defaults": {
+        "unit": "percent", "min": 0, "max": 100,
+        "color": { "mode": "thresholds" },
+        "custom": { "drawStyle": "line", "lineInterpolation": "smooth", "lineWidth": 3,
+                    "fillOpacity": 30, "gradientMode": "scheme", "showPoints": "never",
+                    "thresholdsStyle": { "mode": "line+area" } },
+        "thresholds": { "mode": "absolute", "steps": [
+          { "color": "green", "value": null },
+          { "color": "orange", "value": 70 },
+          { "color": "red", "value": 90 } ] } } },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" }, "tooltip": { "mode": "single" } }
+    },
+    {
+      "id": 6, "type": "timeseries", "title": "Paquets DISCOVER/s (detecta starvation)",
+      "gridPos": { "x": 14, "y": 7, "w": 10, "h": 9 },
+      "datasource": { "type": "prometheus", "uid": "prometheus-dhcp" },
+      "targets": [
+        { "refId": "A", "legendFormat": "DISCOVER", "expr": "rate(kea_dhcp4_packets_received_total{operation=\"discover\"}[1m])" },
+        { "refId": "B", "legendFormat": "REQUEST", "expr": "rate(kea_dhcp4_packets_received_total{operation=\"request\"}[1m])" }
+      ],
+      "fieldConfig": { "defaults": { "unit": "pps",
+        "custom": { "drawStyle": "line", "lineInterpolation": "smooth", "lineWidth": 2, "fillOpacity": 20, "showPoints": "never" } } },
+      "options": { "legend": { "displayMode": "list", "placement": "bottom" } }
+    }
+  ]
+}

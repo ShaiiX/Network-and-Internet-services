@@ -1,0 +1,19 @@
+groups:
+  - name: dhcp_alerts_shailamartinez
+    rules:
+      - alert: DHCPPoolExhaustionWarning
+        expr: (kea_dhcp4_addresses_assigned_total / kea_dhcp4_addresses_total) * 100 > 90
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Pool DHCP shailamartinez a punt d'esgotar-se"
+          description: "Ocupació del pool per sobre del 90% durant més d'1 minut — possible DHCP Starvation."
+
+      - alert: RogueDHCPServerDetected
+        expr: dhcp_rogue_server_detected == 1
+        for: 0m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Servidor DHCP no autoritzat detectat a la xarxa shailamartinez"
