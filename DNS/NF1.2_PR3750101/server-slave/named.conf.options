@@ -1,0 +1,4 @@
+include "/etc/bind/tsig.key";
+options {
+        directory "/var/cache/bind";
+};

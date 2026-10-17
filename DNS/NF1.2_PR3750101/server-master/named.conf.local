@@ -1,0 +1,12 @@
+zone "shailamartinez.local" {
+    type master;
+    file "/etc/bind/zones/db.shailamartinez.local";
+    allow-transfer { key transfer-key; };
+    also-notify { 172.24.63.11 key transfer-key; };
+};
+
+zone "63.24.172.in-addr.arpa" {
+    type master;
+    file "/etc/bind/zones/db.172.24.63";
+    allow-transfer { 172.24.63.11; };
+};

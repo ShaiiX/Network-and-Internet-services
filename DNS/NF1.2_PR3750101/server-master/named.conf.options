@@ -1,0 +1,35 @@
+include "/etc/bind/tsig.key";
+options {
+    directory "/var/cache/bind";
+
+    recursion yes;
+    allow-recursion { 172.24.63.0/24; };
+    allow-query { 172.24.63.0/24; };
+    allow-query-cache { 172.24.63.0/24; };
+
+    forwarders {
+        192.168.88.107;
+        8.8.8.8;
+        1.1.1.1;
+    };
+    forward first;
+
+    dnssec-validation auto;
+    listen-on { any; };
+    listen-on-v6 { none; };
+
+    version "No disponible";
+    rate-limit {
+        responses-per-second 15;
+        window 5;
+    };
+};
+
+logging {
+    channel query_log {
+        file "/var/log/bind/query.log" versions 3 size 10m;
+        severity info;
+        print-time yes;
+    };
+    category queries { query_log; };
+};

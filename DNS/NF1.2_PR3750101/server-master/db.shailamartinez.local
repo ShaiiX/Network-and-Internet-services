@@ -1,0 +1,17 @@
+$TTL    604800
+@       IN      SOA     ns1.shailamartinez.local. admin.shailamartinez.local. (
+                        2026101301 ; Serial (any-mes-dia-seq)
+                        3600       ; Refresh
+                        1800       ; Retry
+                        604800     ; Expire
+                        86400 )    ; Minimum TTL
+;
+@       IN      NS      ns1.shailamartinez.local.
+@       IN      NS      ns2.shailamartinez.local.
+@       IN      MX      10 mail.shailamartinez.local.
+
+ns1     IN      A       172.24.63.10
+ns2     IN      A       172.24.63.11
+www     IN      A       172.24.63.20
+mail    IN      A       172.24.63.21
+ftp     IN      CNAME   www
