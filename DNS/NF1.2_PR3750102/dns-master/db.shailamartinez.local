@@ -1,0 +1,169 @@
+$TTL 604800     ; 1 week
+shailamartinez.local.   IN SOA  ns1.shailamartinez.local. admin.shailamartinez.local. (
+                                2026101361 ; serial
+                                3600       ; refresh (1 hour)
+                                1800       ; retry (30 minutes)
+                                604800     ; expire (1 week)
+                                86400      ; minimum (1 day)
+                                )
+                        RRSIG   SOA 13 2 604800 (
+                                20261107104621 20261024094621 49445 shailamartinez.local.
+                                QI0Dko/IUOgaKYA29qblGxUH1zYl93eucU34Q0+EPg2n
+                                k3bjgZeyUU4cP1R1W+/rpPBzCKeu5rJ6sOaq6wugEA== )
+                        NS      ns1.shailamartinez.local.
+                        NS      ns2.shailamartinez.local.
+                        RRSIG   NS 13 2 604800 (
+                                20261105104727 20261022203427 49445 shailamartinez.local.
+                                Hkph1W8BD4XLmGpLhDw8E4ZLufZNqBFm0g3kUp+hTTPN
+                                A8PeGcqrwQTyJZjsxwtLbfTQ9BExe71au0UW0YsJxQ== )
+                        MX      10 mail.shailamartinez.local.
+                        RRSIG   MX 13 2 604800 (
+                                20261105104727 20261022203427 49445 shailamartinez.local.
+                                KJ1owUvWSlYfZ5dkL0q7tTpvr9urhQQJ0w6w6IuBarOj
+                                JuTGIOuev9Evkp2/xqqtz3pfhxBeMAbG5CSlb4Qb0Q== )
+$TTL 3600       ; 1 hour
+                        DNSKEY  256 3 13 (
+                                bYkKKlSrYuoVodPYxR4sHjCnKPRjq/OMgwzEVILPwBL+
+                                ufCg3n7GZvhhdoDLW87O4o9QVngo0tVeqn6Nag0Vig==
+                                ) ; ZSK; alg = ECDSAP256SHA256 ; key id = 49445
+                        DNSKEY  257 3 13 (
+                                jwJJ4xbvvasmjjXFTL5JpJy9VAmGyYkhxcER/LoobCE5
+                                o8kzkL98Vaw3PD+XvJhWTsgAXb6d2ho4DxN7R+h15g==
+                                ) ; KSK; alg = ECDSAP256SHA256 ; key id = 48299
+                        RRSIG   DNSKEY 13 2 3600 (
+                                20261106081828 20261023071828 48299 shailamartinez.local.
+                                G4MLmscR5AqXzzvFxlbtcF6Hgq1cL25qZZULE9R2VubZ
+                                kSXKVjUXdFXDt5tQqQLUJRKVh39pL1Yk6Pr9uXhdzA== )
+$TTL 86400      ; 1 day
+                        NSEC3PARAM 1 0 0 -
+                        RRSIG   NSEC3PARAM 13 2 86400 (
+                                20261105141859 20261022203427 49445 shailamartinez.local.
+                                b8A3jxnhOaVCX5eMCPRCygdS0NQza4iVSxcYYhzjZJ7v
+                                +3N+nZ3xga3q5Hd2vkyBr4kuwv/dHzt74RII0gRjMA== )
+$TTL 0  ; 0 seconds
+                        TYPE65534 \# 5 ( 0DBCAB0001 )
+                        TYPE65534 \# 5 ( 0DC1250001 )
+                        RRSIG   TYPE65534 13 2 0 (
+                                20261105141859 20261022203427 49445 shailamartinez.local.
+                                lKXhdARRTDzF3jebPDxVFm3FMESpRat7mzpLbvrW+Vhg
+                                1SyGzZmTAzPsfGADzcIcmOk0Lq7Y4xUAoEL9EwKTvA== )
+$TTL 604800     ; 1 week
+ftp.shailamartinez.local. CNAME www.shailamartinez.local.
+                        RRSIG   CNAME 13 3 604800 (
+                                20261105104727 20261022203427 49445 shailamartinez.local.
+                                PCbHc4G/EmIb30sR9J3c9w2/N0lmO/B0+dNko80Q4075
+                                moqfo2uch6QToVe++PcOQTMOWwVD/wLyBe/kc/7ZSg== )
+lab.shailamartinez.local. NS    ns1.lab.shailamartinez.local.
+ns1.lab.shailamartinez.local. A 172.24.63.11
+mail.shailamartinez.local. A    172.24.63.21
+                        RRSIG   A 13 3 604800 (
+                                20261105152609 20261022203427 49445 shailamartinez.local.
+                                8kS7vbQM9X4ltzZYG+A/B/xdt4FBTa7qFefnlf+s5xNb
+                                dPGjFIDX4d0F2+y7b5bqPY5ziMGtCj4uN+jsY+LPww== )
+ns1.shailamartinez.local. A     172.24.63.10
+                        RRSIG   A 13 3 604800 (
+                                20261105152609 20261022203427 49445 shailamartinez.local.
+                                Ylt+IYDwEBIhiR6S4vmjkSTjxYRXTIhp696V6f6TIaPe
+                                qThvspasM1vF71AU3LjM+NZJARPFVwMufhH9zaIodA== )
+ns2.shailamartinez.local. A     172.24.63.11
+                        RRSIG   A 13 3 604800 (
+                                20261105152609 20261022203427 49445 shailamartinez.local.
+                                1/aiBdkksSDaeqDPPQkF2hBgTctdfcok3bt+pRNp2lO0
+                                jQuDWOWbvBvMhVorXvadnPvsnWqccyP6slrUjs92Kw== )
+$TTL 604800     ; 1 week
+prova-manual.shailamartinez.local. TXT "zona nova editada"
+                        RRSIG   TXT 13 3 604800 (
+                                20261105165052 20261022203427 49445 shailamartinez.local.
+                                kCjsA97dvOAGAtgA/dIoy7pF6bm3odkJPO7Do+6+BKke
+                                FCBm2HbO4CabCEignOaPR+zNbFArPoa/qvDDGV6Pfg== )
+$TTL 300        ; 5 minutes
+prova-nsupdate.shailamartinez.local. A 172.24.63.40
+                        RRSIG   A 13 3 300 (
+                                20261105165052 20261022203427 49445 shailamartinez.local.
+                                kTrFMqWlkIVED4eftxBXdVvRTRxolBhuiFWGA5ao3Y+A
+                                4TV9kOTDMpKRGb1P3mwSuRW0cYGVL8x4gWcYUqSP8A== )
+$TTL 604800     ; 1 week
+www.shailamartinez.local. A     172.24.63.20
+                        RRSIG   A 13 3 604800 (
+                                20261105165052 20261022203427 49445 shailamartinez.local.
+                                7rvUU4nq++rO17l6IAWPIMhmnmhHn5kIA5iiu353f+Sw
+                                MbXX7b/FeMZWsKBSjZOMNbI6Vxe2KZUaGJrMIXpOag== )
+$TTL 86400      ; 1 day
+5T2NPLS4G4M5KV6GATMDUOEATT8V0B47.shailamartinez.local. NSEC3 1 0 0 - (
+                                8TUF4GRMHRPLTDP4VNSRMP9PHLS1UL79
+                                TXT RRSIG )
+                        RRSIG   NSEC3 13 3 86400 (
+                                20261105141859 20261022203427 49445 shailamartinez.local.
+                                c0lMTieDq55cCp7Xo2w+TTNP+DN0tNNBPyuIcOFPQnc8
+                                +4Y2sQpy4GTNOWTvNb0G+EuJk4d493kxafGAxWdo9w== )
+8TUF4GRMHRPLTDP4VNSRMP9PHLS1UL79.shailamartinez.local. NSEC3 1 0 0 - (
+                                ABB8QJ0BORN2FG43TGIGLP9NHOUKLC0S
+                                A RRSIG )
+                        RRSIG   NSEC3 13 3 86400 (
+                                20261105181340 20261022203427 49445 shailamartinez.local.
+                                sotCTWRv+LK1sttT2FfjjqZZglGvIqtAKfkNtssQwJXi
+                                BtAWsRig+wQqUh8zASU93BZ+cBWqUvZ464OaXkVBdg== )
+ABB8QJ0BORN2FG43TGIGLP9NHOUKLC0S.shailamartinez.local. NSEC3 1 0 0 - (
+                                BICH1U21A032OR6US3N2NHBFAEP7EJI8
+                                A RRSIG )
+                        RRSIG   NSEC3 13 3 86400 (
+                                20261105181340 20261022203427 49445 shailamartinez.local.
+                                uRaHUn/6123JZalZ6A7n/5QSuK4+t55nOSnmudSZE8KA
+                                akWHQN/nNIVkyvsfx6AVT21B6j1KhUmzP2QA6QN1rA== )
+BICH1U21A032OR6US3N2NHBFAEP7EJI8.shailamartinez.local. NSEC3 1 0 0 - (
+                                CSH6TSOFHP96GTGU20AFI109KR85989P
+                                NS SOA MX RRSIG DNSKEY NSEC3PARAM
+                                TYPE65534 )
+                        RRSIG   NSEC3 13 3 86400 (
+                                20261105141859 20261022203427 49445 shailamartinez.local.
+                                FT/eMU8Wnu3T/RaMwjkQCQB1wl/C4lR/y8TgNA1lxq05
+                                2YOrwEAwb9k8cbT2aJAEWK9ZJe6kmqbSgvDuj0G+Zg== )
+CSH6TSOFHP96GTGU20AFI109KR85989P.shailamartinez.local. NSEC3 1 0 0 - (
+                                FR6OVJQCGV3TOLMA874NU51N90C8C32H
+                                A RRSIG )
+                        RRSIG   NSEC3 13 3 86400 (
+                                20261105141859 20261022203427 49445 shailamartinez.local.
+                                sQb2kFlD26QBC/MbeF28hc74TweaRNqr8zUO1TkzcSgQ
+                                FI3D43w9SLDeuTHdH5Z5M96ZrBdBMMxdyZTXPL7TNQ== )
+FR6OVJQCGV3TOLMA874NU51N90C8C32H.shailamartinez.local. NSEC3 1 0 0 - (
+                                LAADEOVJ0JSOUA4975UVS1D0PG9F9GIJ
+                                A RRSIG )
+                        RRSIG   NSEC3 13 3 86400 (
+                                20261105181340 20261022203427 49445 shailamartinez.local.
+                                sDINr0PDTDnbyYQbkxdvZA5PZt6cTlEfEH9ZCa2UHV5X
+                                /ju5lwTZ/i6DfadYiPpZ0i5bo/b9epnF7YI1qTOkCw== )
+LAADEOVJ0JSOUA4975UVS1D0PG9F9GIJ.shailamartinez.local. NSEC3 1 0 0 - (
+                                P0PIL50U8S0G9GQTUL35HKMJHPKF328V
+                                CNAME RRSIG )
+                        RRSIG   NSEC3 13 3 86400 (
+                                20261105132550 20261022203427 49445 shailamartinez.local.
+                                prVXz2rgKGj0uSZqCArDOs/jYWtbWvG5qrpun01pi2JW
+                                desg5iqbV5+Xfcxc2EbqONysPH5R34UrqIJohWqmBg== )
+P0PIL50U8S0G9GQTUL35HKMJHPKF328V.shailamartinez.local. NSEC3 1 0 0 - (
+                                R527BVC852JF1PKLF1B4CCCBKBCHE2VP
+                                NS )
+                        RRSIG   NSEC3 13 3 86400 (
+                                20261105132550 20261022203427 49445 shailamartinez.local.
+                                y9QemhLQ1G6ck7v76KB3ZWPznWf33DTUbAmqLAAZzjXC
+                                QBm8VH1J7TpPYi3AncNYHd2kBAdx0blqlAh+rsq08A== )
+R527BVC852JF1PKLF1B4CCCBKBCHE2VP.shailamartinez.local. NSEC3 1 0 0 - (
+                                RSDM2M2OJCUBS8OO6EC60FL6V8L8C8QL
+                                A RRSIG )
+                        RRSIG   NSEC3 13 3 86400 (
+                                20261105181340 20261022203427 49445 shailamartinez.local.
+                                YvyPMZUy1kfVTAIzcPaoVpkBQe2wxKH1fZKzwFczaUyW
+                                QDIft5/VxIEGwRpuSeDadzFPZcGk8kJ7EriZV9DSGA== )
+RSDM2M2OJCUBS8OO6EC60FL6V8L8C8QL.shailamartinez.local. NSEC3 1 0 0 - (
+                                UEFC23P22LQ8BONBKFETF47NKVA626QR
+                                A RRSIG )
+                        RRSIG   NSEC3 13 3 86400 (
+                                20261105191753 20261022203657 49445 shailamartinez.local.
+                                VhFRO38gXMmvadeq4wTtzQ0ndVYVUt6Y7Ihfj4QIdll5
+                                M5Otvm45SgrwRZACHjrk/VktYUclWM/h8gnHEdA5gQ== )
+UEFC23P22LQ8BONBKFETF47NKVA626QR.shailamartinez.local. NSEC3 1 0 0 - (
+                                5T2NPLS4G4M5KV6GATMDUOEATT8V0B47
+                                A RRSIG )
+                        RRSIG   NSEC3 13 3 86400 (
+                                20261107021844 20261024094621 49445 shailamartinez.local.
+                                tq/qXii8xrSWVuIMzAlKoUdTT/ho+DJfLNaCrIy9yq4U
+                                JLE2mqZZcIA5Hvn3qnfsMyHKSqy33P81fPYr9ikJGg== )

@@ -1,0 +1,53 @@
+include "/etc/bind/tsig.key";
+include "/etc/bind/ddns.key";
+options {
+    directory "/var/cache/bind";
+
+    recursion yes;
+    allow-recursion { 172.24.63.0/24; };
+    allow-query { 172.24.63.0/24; };
+    allow-query-cache { localhost; 172.24.63.0/24; };
+
+    forwarders {
+        192.168.0.1;
+    };
+    forward first;
+
+    dnssec-validation auto;
+    validate-except { "shailamartinez.local"; };
+    listen-on { any; };
+    notify-source 172.24.63.10;
+    listen-on-v6 { none; };
+
+    version "No disponible";
+    rate-limit {
+        responses-per-second 15;
+        window 5;
+    };
+};
+
+dnssec-policy "politica-shailamartinez" {
+    keys {
+        ksk lifetime unlimited algorithm ecdsap256sha256;
+        zsk lifetime 30d       algorithm ecdsap256sha256;
+    };
+    nsec3param iterations 0 optout no salt-length 0;
+    max-zone-ttl 604800;
+};
+
+logging {
+    channel query_log {
+        file "/var/log/bind/query.log" versions 3 size 10m;
+        severity info;
+        print-time yes;
+    };
+    category queries { query_log; };
+
+    channel update_log {
+        file "/var/log/bind/update.log" versions 3 size 5m;
+        severity info;
+        print-time yes;
+    };
+    category update { update_log; };
+    category update-security { update_log; };
+};

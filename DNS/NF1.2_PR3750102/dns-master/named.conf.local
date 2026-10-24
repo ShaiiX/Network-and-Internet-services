@@ -1,0 +1,22 @@
+zone "shailamartinez.local" {
+    type master;
+    file "/var/lib/bind/db.shailamartinez.local";
+    key-directory "/var/lib/bind/keys";
+    dnssec-policy "politica-shailamartinez";
+    inline-signing no;
+    allow-transfer { key transfer-key; };
+    also-notify { 172.24.63.11 key transfer-key; };
+    update-policy {
+        grant ddns-key-shailamartinez zonesub A DHCID TXT;
+    };
+};
+
+zone "63.24.172.in-addr.arpa" {
+    type master;
+    file "/var/lib/bind/db.172.24.63";
+    allow-transfer { key transfer-key; };
+    also-notify { 172.24.63.11 key transfer-key; };
+    update-policy {
+        grant ddns-key-shailamartinez zonesub PTR DHCID TXT;
+    };
+};

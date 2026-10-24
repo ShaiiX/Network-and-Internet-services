@@ -1,0 +1,17 @@
+$TTL 604800     ; 1 week
+63.24.172.in-addr.arpa. IN SOA  ns1.shailamartinez.local. admin.shailamartinez.local. (
+                                2026101332 ; serial
+                                3600       ; refresh (1 hour)
+                                1800       ; retry (30 minutes)
+                                604800     ; expire (1 week)
+                                86400      ; minimum (1 day)
+                                )
+                        NS      ns1.shailamartinez.local.
+10.63.24.172.in-addr.arpa. PTR  ns1.shailamartinez.local.
+11.63.24.172.in-addr.arpa. PTR  ns2.shailamartinez.local.
+20.63.24.172.in-addr.arpa. PTR  www.shailamartinez.local.
+21.63.24.172.in-addr.arpa. PTR  mail.shailamartinez.local.
+30.63.24.172.in-addr.arpa. PTR  srv1.lab.shailamartinez.local.
+31.63.24.172.in-addr.arpa. PTR  srv2.lab.shailamartinez.local.
+$TTL 300        ; 5 minutes
+40.63.24.172.in-addr.arpa. PTR  prova-nsupdate.shailamartinez.local.

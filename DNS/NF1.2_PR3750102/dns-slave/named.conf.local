@@ -1,0 +1,17 @@
+zone "shailamartinez.local" {
+    type slave;
+    masters { 172.24.63.10 key transfer-key; };
+    file "/var/cache/bind/db.shailamartinez.local";
+};
+
+zone "63.24.172.in-addr.arpa" {
+    type slave;
+    masters { 172.24.63.10 key transfer-key; };
+    file "/var/cache/bind/db.172.24.63";
+};
+
+zone "lab.shailamartinez.local" {
+    type master;
+    file "/etc/bind/zones/db.lab.shailamartinez.local";
+    allow-transfer { none; };
+};
